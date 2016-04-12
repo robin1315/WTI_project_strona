@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Zarzadzenie parkingami</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/parkowanie.css' %}">
+    </head>
+    <body>
+
+      <div class="page-header">
+            <h1 id="title">Zarzadzanie parkingami</h1>
+      <div class="top-menu">
+        {% include "parkowanie/template/parkowanie/nav.html"  %}
+      </div>
+
+      </div>
+
+      <div class="content">
+                    {% block content %}
+                    {% endblock %}
+      </div>
+
+    </body>
+</html>
