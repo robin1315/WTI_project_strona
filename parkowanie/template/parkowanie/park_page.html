@@ -1,13 +1,21 @@
-{% extends 'parkowanie/template/parkowanie/base.html' %}
+{% extends 'parkowanie/template/parkowanie/base.html'  %}
+{% load easy_maps_tags %}
 
 {% block content %}
 
 {% for park in parks %}
     <div class="">
-        <p>{{ park.name }}</p>
-        <p>{{ park.data|linebreaks }}</p>
-
+    {#        <p>{{ park.name }}</p>#}
+    {#        <p>{{ park.data|linebreaks }}</p>#}
+            <p>{{ park }}</p>
     </div>
 {% endfor %}
+
+
+{#<!-- Default map with 300x400 dimensions -->#}
+{#{% easy_map "Russia, Ekaterinburg, Mira 32" 300 400 %}#}
+{##}
+{#<!-- Variable address, custom detail level and custom template -->#}
+{#{% easy_map address 200 200 5 using 'map.html' %}#}
 
 {% endblock %}

@@ -6,7 +6,7 @@
    <li><a class="contact" href="/contact">Kontakt</a></li>
    <!--<li><a class="login" href="/login">Logowanie</a></li>-->
     {% if user.is_authenticated %}
-    <li class="logged">  Zalogowany użytkownik: <b>{{ users.name }}</b>    <a href="/logout/">wyloguj się</a></li>
+    <li class="logged">  Zalogowany użytkownik: <b>{{ user.username }}</b>    <a href="/logout/">wyloguj się</a></li>
     {% else %}
       <li><a href="/login/">Zaloguj się</a></li>
         <li><a href="/register/">Rejestracja</a></li>

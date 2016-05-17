@@ -2,6 +2,28 @@
 
 {% block content %}
 
-    <p>Jakiś kontakt</p>
+    <p>Jakie nasze dane</p>
+    <a href="mailto:jakis@mail.pl">jakis@mail.pl</a>
 
+    <br>
+    <center><h1>Napisz do nas!</h1></center>
+
+    {% if errors %}
+        <ul>
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <div style="margin-left:35%;margin-right:35%;">
+    <fieldset>
+    <form action="" class="post_form" method="post">
+        {% csrf_token %}
+        <p>Temat: <input type="text" name="subject"></p>
+        <p>Twój e-mail (opcjonalnie): <input type="text" name="email"></p>
+        <p>Wiadomość: <textarea name="message" rows="10" cols="50"></textarea></p>
+        <input type="submit" value="Wyślij">
+    </form>
+    </fieldset>
+    </div>
 {% endblock %}

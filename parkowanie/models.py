@@ -1,7 +1,7 @@
 from django.db import models
-from django.db import models
 from django.utils import timezone
-from django.core.validators import MinValueValidator, MaxValueValidator
+
+
 # Create your models here.
 
 class News(models.Model):
@@ -16,11 +16,33 @@ class News(models.Model):
         self.save()
 
     def __str__(self):
-        s = "Tytul: " + self.title + " (id="+str(self.id)+")\n"
-        s += "tresc: " + str(self.text)+"\n"
-        s += "data utworzenia: " + str(self.created_date)+"\n"
-        s += "data publikacji: "+ str(self.published_date)+"\n"
+        s = "Tytul: " + self.title + " (id=" + str(self.id) + ")\n"
+        s += "tresc: " + str(self.text) + "\n"
+        s += "data utworzenia: " + str(self.created_date) + "\n"
+        s += "data publikacji: " + str(self.published_date) + "\n"
         s += "autor: " + str(self.author) + "\n"
+        return s
+
+
+class RegisterModel(models.Model):
+    login = models.CharField( max_length=30)
+    name = models.CharField(max_length=30)
+    surname = models.CharField(max_length=30)
+    email = models.CharField(max_length=30)
+    passw = models.CharField(max_length=30)
+    passw2 = models.CharField(max_length=30)
+
+    def __str__(self):
+        s = self.login + ' ' + self.name + ' ' + self.surname + ' ' + self.email + ' ' + self.passw
+        return s
+
+
+class LoginModel(models.Model):
+    login = models.CharField(max_length=30)
+    password = models.CharField(max_length=30)
+
+    def __str__(self):
+        s = self.login + ' ' + self.password
         return s
 
 class Park(models.Model):
@@ -41,4 +63,3 @@ class Park(models.Model):
         s += "Miejsca parkingowe: " + str(self.spacing) + "\n"
         s += "Miejsca wolne: " + str(self.free) + "\n"
         return s
-
